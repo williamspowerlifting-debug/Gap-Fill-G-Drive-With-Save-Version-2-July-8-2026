@@ -22,6 +22,54 @@
         padding: 40px 20px;
         color: #111;
       }
+#landingHero {
+    display: flex;
+    flex-direction: column;  /* Stacks items vertically */
+    align-items: center;      /* Centers items horizontally */
+    text-align: center;       /* Centers the text lines inside headings/paragraphs */
+    justify-content: center;  /* Centers items vertically if you give it height */
+    padding: 60px 20px;       /* Adds breathing room on mobile screens */
+    max-width: 800px;         /* Prevents text lines from getting too wide on desktop */
+    margin: 0 auto;           /* Centers the entire section bounding box on the page */
+}
+
+/* Optional: Ensures your logo at the top is also centered */
+.landing-header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+#landingFeatures {
+    display: flex;
+    flex-wrap: wrap;        /* Allows cards to move to the next line on mobile */
+    justify-content: center; /* Centers the cards horizontally */
+    gap: 30px;              /* Adds equal spacing between the cards */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.landingCard {
+    flex: 1;
+    min-width: 280px;       /* Prevents cards from getting too squished */
+    max-width: 350px;       /* Keeps cards from getting awkwardly wide */
+    text-align: center;      /* Centers paragraph text inside the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* Centers the modified logo and H3 header text */
+}
+
+/* Updates the card header to keep the icon and text centered together */
+.landingCard h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the icon + text bundle inside the H3 */
+    gap: 10px;
+}
+#landingFooter {
+    text-align: center;
+    padding: 40px 20px;
+}
 
       /* Keeps the main logo size managed */
 .main-logo {
