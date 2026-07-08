@@ -1024,6 +1024,20 @@
     </style>
   </head>
   <body>
+    <!-- ==========================================
+     Landing Screen (Commit 1 - Structure Only)
+     ========================================== -->
+<div id="landingScreen" style="display:none;">
+  <div style="padding:60px;text-align:center;">
+    <h1>Quizzit</h1>
+    <p>Landing Page Placeholder</p>
+</div>
+</div>
+
+<!-- ==========================================
+     Main Application
+     ========================================== -->
+<div id="mainApp">
     <div class="container" id="app">
       <!-- Header row with Saved Exercises button -->
       <div
@@ -1382,6 +1396,16 @@
       }
       let pendingDoneToast = false;
       let activeToastTimer = null;
+
+      function showLandingPage() {
+  document.getElementById("landingScreen").style.display = "block";
+  document.getElementById("mainApp").style.display = "none";
+}
+
+function showMainApplication() {
+  document.getElementById("landingScreen").style.display = "none";
+  document.getElementById("mainApp").style.display = "block";
+}
 
       function updateAutoSaveStatus() {
         const now = new Date();
@@ -4138,5 +4162,6 @@ function toggleLayout() {
         return result;
       }
     </script>
+   </div> <!-- End mainApp -->
   </body>
 </html>
