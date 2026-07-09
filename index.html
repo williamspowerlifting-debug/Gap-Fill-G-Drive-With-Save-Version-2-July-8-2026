@@ -22,6 +22,29 @@
         padding: 40px 20px;
         color: #111;
       }
+/* Base structure for your landing container */
+#landingScreen {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Smoothly fade over 500 milliseconds */
+}
+
+/* Helper animation trigger style */
+.fade-out {
+    opacity: 0 !important;
+}
+
+/* Base structure for your main dashboard app wrapper */
+#mainApp {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Helper display rule to smoothly bring your workspace visibility to 100% */
+.fade-in {
+    opacity: 1 !important;
+}
+
+      
 #landingHero {
     display: flex;
     flex-direction: column;  /* Stacks items vertically */
@@ -1211,7 +1234,7 @@
             Spend less time preparing and more time teaching.
         </p>
 
-       <button id="landingGoogleButton">
+       <button id="landingGoogleButton" onclick="transitionToApp()">
     <!-- Compliant White Left Block containing the official Google 'G' -->
     <span class="google-icon-wrapper">
         <svg xmlns="http://w3.org" viewBox="0 0 48 48" class="google-icon">
@@ -1648,15 +1671,45 @@
       let pendingDoneToast = false;
       let activeToastTimer = null;
 
-      function showLandingPage() {
-  document.getElementById("landingScreen").style.display = "block";
-  document.getElementById("mainApp").style.display = "none";
+     // Step 1: Ensure the landing screen loads up natively when your app first boots up
+window.addEventListener("DOMContentLoaded", () => {
+  showLandingPage();
+});
+
+function showLandingPage() {
+  const landing = document.getElementById("landingScreen");
+  const app = document.getElementById("mainApp");
+
+  landing.classList.remove("fade-out");
+  landing.style.display = "block";
+  landing.style.opacity = "1";
+
+  app.style.display = "none";
+  app.classList.remove("fade-in");
 }
 
-function showMainApplication() {
-  document.getElementById("landingScreen").style.display = "none";
-  document.getElementById("mainApp").style.display = "block";
+// Step 2: The animation engine that shifts screens when clicking 'Continue with Google'
+function transitionToApp() {
+  const landing = document.getElementById("landingScreen");
+  const app = document.getElementById("mainApp");
+
+  // Begin fading out the landing page canvas
+  landing.classList.add("fade-out");
+
+  // Wait exactly 500 milliseconds (matching your CSS transition time) before swapping display blocks
+  setTimeout(() => {
+    landing.style.display = "none"; // Drop from viewport layouts safely
+    
+    app.style.display = "block";    // Mount main app container context into screen layout
+    
+    // Tiny delay allows display: block to register before fading the app in
+    setTimeout(() => {
+        app.classList.add("fade-in");
+    }, 10);
+    
+  }, 500);
 }
+
 
       function updateAutoSaveStatus() {
         const now = new Date();
