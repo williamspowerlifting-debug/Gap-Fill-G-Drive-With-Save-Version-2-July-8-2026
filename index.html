@@ -49,11 +49,14 @@
     margin: 0 auto;
 }
 
-      #landingGoogleButton {
+ #landingGoogleButton {
     display: inline-flex;
     align-items: center;
     padding: 2px; /* Creates an ultra-clean border around the inner components */
-    background: linear-gradient(135deg, #C6FF00 75%, #FFD633 100%);
+    
+    /* Updated to your exact shade of lime green */
+    background-color: #89F336; 
+    
     border: none;
     border-radius: 6px; /* Smooth card curvature */
     cursor: pointer;
@@ -83,7 +86,7 @@
 /* 2. Branded Action Text block */
 .google-button-text {
     color: #1F2937; /* High contrast dark charcoal text */
-    font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; /* Google-approved type clean look */
+    font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; /* Google-approved clean type look */
     font-size: 14px;
     font-weight: 700;
     padding: 0 24px 0 16px; /* Balance spacing between the white box and text */
@@ -93,14 +96,15 @@
 /* Interactive Hover States */
 #landingGoogleButton:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(198, 255, 0, 0.35); /* Soft branded glow */
+    /* Soft matching glow effect using your new color */
+    box-shadow: 0 4px 12px rgba(137, 243, 54, 0.45); 
 }
 
 #landingGoogleButton:active {
     transform: translateY(0);
-    background: linear-gradient(135deg, #b5eb00 75%, #e6c02e 100%); /* Slightly darker click state */
+    /* Safely deepens your exact lime color slightly for the click effect */
+    background-color: #76cf2e; 
 }
-
 
 .landingCard {
     flex: 1;
@@ -121,8 +125,44 @@
 }
 #landingFooter {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
+    background-color: transparent; /* Seamlessly blends with your page background */
 }
+
+.footer-tagline {
+    font-size: 14px;
+    color: #4B5563; /* Slate grey color from your core text scheme */
+    margin-bottom: 12px;
+}
+
+/* Legal Container Layout */
+.footer-legal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+}
+
+/* Individual Link Styling */
+.footer-legal a {
+    color: #1F2937; /* Clean, highly-legible dark charcoal link color */
+    text-decoration: underline; /* Standard underlines signal clear interactivity to reviewers */
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+}
+
+/* Subtle Hover Effect */
+.footer-legal a:hover {
+    color: #4B5563; 
+}
+
+/* Vertical separating bar divider color */
+.footer-divider {
+    color: #D1D5DB; /* Soft light-grey divider decoration */
+    user-select: none;
+}
+
 
       /* Keeps the main logo size managed */
 .main-logo {
@@ -1230,11 +1270,19 @@
     </section>
 
     <footer id="landingFooter">
-        <p>
-            Designed specifically for ESL teachers.
-        </p>
-    </footer>
 
+    <p class="footer-tagline">
+        Designed specifically for ESL teachers.
+    </p>
+
+    <!-- Mandatory Legal Policy Links for Google Verification -->
+    <nav class="footer-legal">
+        <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+        <span class="footer-divider">|</span>
+        <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>
+    </nav>
+
+</footer>
 </div>
 
 <!-- ==========================================
